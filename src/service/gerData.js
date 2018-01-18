@@ -23,3 +23,8 @@ export const getAddress = (geohash) => Axios.get('http://cangdu.org:8001/v2/pois
 
 // 获取商铺列表
 export const shopList = (latitude,longitude) => Axios.get('http://cangdu.org:8001/shopping/restaurants?latitude='+ latitude +'&longitude='+longitude)
+
+// 获取本地数据
+export const provincelist = ()=> Axios.get('/api/province')
+export const citylist = (value)=> Axios.get('/api/city')
+export const countylist = (value)=> Axios.get('/api/county')

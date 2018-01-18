@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import city from '@/components/city'
 import mysite from '@/components/mysite'
 import shoplist from '@/components/shoplist'
+import select from '@/components/common/select'
 
 Vue.use(Router)
 
@@ -32,6 +33,11 @@ export default new Router({
      {
       path: '/shoplist/:modulename',
       component: shoplist
-    }
+    },
+      //测试三级联动
+      {
+        path: '/select',
+        component: select
+      }
   ]
 })

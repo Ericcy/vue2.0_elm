@@ -13,6 +13,17 @@ const portfinder = require('portfinder')
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
+// 配置请求本地数据
+const express = require('express')
+const app = express()
+var appData = require('../city_code.json')
+var province = appData.province
+var city = appData.city
+var county = appData.county
+var apiRoutes = express.Router()
+app.use('/api',apiRoutes)
+// 配置请求本地数据结束
+
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
@@ -42,6 +53,28 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
+    },
+
+    // 请求本地数据
+    before(app){
+      app.get('/api/province',(req,res) => {
+        res.json({
+          errno:0,
+          data:province
+        })
+      }),
+      app.get('/api/city',(req,res) => {
+        res.json({
+          errno:0,
+          data:city
+        })
+      }),
+      app.get('/api/county',(req,res) => {
+        res.json({
+          errno:0,
+          data:county
+        })
+      })
     }
   },
   plugins: [
