@@ -94,7 +94,6 @@ export default {
 </script>
 
 <style scoped>
-@import url("../style/swiper.min.css");
 .mysite{
   overflow: hidden;
 }

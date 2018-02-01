@@ -14,6 +14,7 @@ export default {
 
 <style>
 @import url('style/common.css');
+@import url("/style/swiper.min.css");
 .router-fade-enter-active, .router-fade-leave-active {
     transition: opacity .3s;
 }
